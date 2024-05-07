@@ -60,6 +60,9 @@
     - 단일 Config 파일에서 service가 먼저 생성되는게 좋은 선택지 이다.
         (selector 덕분에 동적으로 deployment랑 바인딩 됨)
 
+    - kubectl delete -l group=exampe :: label group 이 example인 service와 deployment 삭제
+    - kubectl delete deployment,services -l group=exampe :: label group 이 example인 service와 deployment 삭제
+
 ### DashBoard <Docker Desktop>
 
     LINK :: https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
