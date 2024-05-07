@@ -41,6 +41,12 @@
     ## 삭제
     - kubectl delete -f deployment.yaml -f service.yaml
 
+### Section 3 :: 다중 vs 단일 Config
+
+    - kubectl apply -f master-deployment.yaml
+    - minikube service backend-service
+    - kubectl delete -f master-deployment.yaml
+
 ### MEMO
 
     - kubectl get deployments
@@ -49,6 +55,10 @@
     - kubectl delete deployment ${NAME}
 
     - selector.matchLabels에 명시 된 모든 라벨들이 있는 템플릿만 selector
+
+    - 단일 Config 파일에서 섹션 구분은 '---'
+    - 단일 Config 파일에서 service가 먼저 생성되는게 좋은 선택지 이다.
+        (selector 덕분에 동적으로 deployment랑 바인딩 됨)
 
 ### DashBoard <Docker Desktop>
 
