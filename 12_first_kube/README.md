@@ -1,4 +1,4 @@
-### STEP
+### Section 1 :: 명령적 접근방식
 
     [Docker Image]
     - docker build -t kube-first-app .
@@ -28,12 +28,27 @@
     - kubectl delete service first-app
     - kubectl delete deployment first-app
 
+### Section 2 :: 선언적 접근방식
+
+    - kubectl apply -f deployment.yaml :: -f = 파일
+    - kubectl apply -f service.yaml
+    - minikube service backend-service
+
+    ## Deployment 수정
+    - deployment.yaml 수정
+    - kubectl apply -f deployment.yaml
+
+    ## 삭제
+    - kubectl delete -f deployment.yaml -f service.yaml
+
 ### MEMO
 
     - kubectl get deployments
     - kubectl get pods
     - kubectl get services
     - kubectl delete deployment ${NAME}
+
+    - selector.matchLabels에 명시 된 모든 라벨들이 있는 템플릿만 selector
 
 ### DashBoard <Docker Desktop>
 
