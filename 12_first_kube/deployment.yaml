@@ -20,4 +20,11 @@ spec:
     spec:
       containers:
         - name: second-nodejs
-          image: nameofokja/kube-first-app:2
+          image: nameofokja/kube-first-app
+          imagePullPolicy: Always
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            periodSeconds: 10
+            initialDelaySeconds: 5

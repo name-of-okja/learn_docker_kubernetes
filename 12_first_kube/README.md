@@ -60,8 +60,13 @@
     - 단일 Config 파일에서 service가 먼저 생성되는게 좋은 선택지 이다.
         (selector 덕분에 동적으로 deployment랑 바인딩 됨)
 
-    - kubectl delete -l group=exampe :: label group 이 example인 service와 deployment 삭제
+    - kubectl delete -l group=example :: label group 이 example인 service와 deployment 삭제
     - kubectl delete deployment,services -l group=exampe :: label group 이 example인 service와 deployment 삭제
+
+    - deployment->livenessProbe :: Pod내에 컨테이너가 잘 작동 하는 지 검사하는 부분
+        - initialDelaySeconds :: 컨테이너가 시작 후 몇 초 후에 검사할지
+        - periodSeconds :: 검사를 몇 초 간격으로 할 지
+    - imagePullPolicy: Always || image: nameofokja/kube-first-app:lates :: 항상 최신 이미지만 가져온다
 
 ### DashBoard <Docker Desktop>
 
