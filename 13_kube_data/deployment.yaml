@@ -21,8 +21,13 @@ spec:
               name: story-volume ## vloumes의 volume name
       volumes:
         - name: story-volume
-          hostPath:
-            path: /story-data
-            type: DirectoryOrCreate
+          persistentVolumeClaim:
+            claimName: test-host-pvc
+        #
+        # - name: story-volume
+        #   hostPath:
+        #     path: /story-data
+        #     type: DirectoryOrCreate
+        #
         # - name: story-volume
         #   emptyDir: {}
