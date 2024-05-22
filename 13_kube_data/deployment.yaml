@@ -16,6 +16,13 @@ spec:
         - name: story
           image: nameofokja/kube-story-data:latest
           imagePullPolicy: Always
+          env:
+            - name: STORY_FOLDER # proccess.env.STORY_FOLDER
+              # value: 'story' :: key value
+              valueFrom:
+                configMapKeyRef:
+                  name: test-story-env
+                  key: folder
           volumeMounts:
             - mountPath: /app/story
               name: story-volume ## vloumes의 volume name

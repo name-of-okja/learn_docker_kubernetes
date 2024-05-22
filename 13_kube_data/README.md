@@ -11,6 +11,11 @@
     - kubectl apply -f host-pvc.yaml
     - kubectl apply -f deployment.yaml
 
+### Section 3 :: Env
+
+    - kubectl apply -f environment.yaml
+    - kubectl get configmaps
+
 ### MEMO
 
     - minikube service story-service --url :: 서비스 주소 얻기
