@@ -18,7 +18,4 @@ spec:
           imagePullPolicy: Always
           env:
             - name: AUTH_ADDRESS
-              value: localhost
-        - name: auth
-          image: nameofokja/kube-test-auth
-          imagePullPolicy: Always
+              value: '10.101.36.148'

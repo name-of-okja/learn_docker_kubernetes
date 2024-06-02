@@ -68,7 +68,7 @@ app.post('/login', async (req, res) => {
   // const response = { status: 200, data: { token: 'abc' } };
   // KUBE
   const response = await axios.get(
-    `http://${process.env.AUTH_ADDRESS}/token/` +
+    `http://${process.env.AUTH_SERVICE_SERVICE_HOST}/token/` +
       hashedPassword +
       '/' +
       password
