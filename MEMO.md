@@ -1,3 +1,7 @@
+## KUBE
+
+    - minikube service story-service --url :: 서비스 주소 얻기
+
 ## command line
 
     docker build {DOCKERFILE} -t {NAME:TAG}

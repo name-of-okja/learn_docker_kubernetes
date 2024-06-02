@@ -16,3 +16,9 @@ spec:
         - name: users
           image: nameofokja/kube-test-users
           imagePullPolicy: Always
+          env:
+            - name: AUTH_ADDRESS
+              value: localhost
+        - name: auth
+          image: nameofokja/kube-test-auth
+          imagePullPolicy: Always

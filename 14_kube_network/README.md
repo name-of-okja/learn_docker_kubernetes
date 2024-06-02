@@ -1,10 +1,14 @@
-### Section 1 ::
+### Section 1 :: Pod 내부 통신
 
     - docker-compose up -d --build
 
     - cd users-api
     - docker build -t nameofokja/kube-test-users .
     - docker push nameofokja/kube-test-users
+
+    - cd auth-api
+    - docker build -t nameofokja/kube-test-auth .
+    - docker push nameofokja/kube-test-auth
 
     - cd kubernetes
     - kubectl apply -f .\users-deployment.yaml
