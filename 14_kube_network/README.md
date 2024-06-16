@@ -20,6 +20,16 @@
     - kubectl apply -f .\auth-service.yaml -f .\auth-deployment.yaml
     - users-app.js 수정 후 적용을 위해 kubectl delete -f .\users-deplyoment.yaml kubectl apply -f .\users-deloyemnt.yaml
 
+### Section 3 :: 챌린지
+
+    - docker build -t nameofokja/kube-test-tasks .
+    - docker push nameofokja/kube-test-tasks
+    - kubectl apply -f .\tasks-service.yaml -f .\tasks-deployment.yaml
+    - tasks pod 에러 CrashLoopBackOff
+    >> docker-compose에는 TASKS_FOLDER 변수가 있는데 쿠버에서는 확인이 불가능 한 변수 (task-app.js에 사용중인 변수임)여서 tasks-deployemnt.yaml 파일에 TASKS_FOLDER 변수 등록
+
+    - minikube service tasks-service :: 해당 서비스 주소를 가져오기 위해서(실행시키기 위한 목적이 아님 실행은 apply에서 함)
+
 ### MEMO
 
     - service의 spec type 이 ClusterIP 일 경우 클러스터 내부로 부터만 접근 할 수 있는 서비스가 됨 :: 즉 외부에서는 접근이 불가능함
