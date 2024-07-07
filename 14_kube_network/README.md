@@ -28,7 +28,16 @@
     - tasks pod 에러 CrashLoopBackOff
     >> docker-compose에는 TASKS_FOLDER 변수가 있는데 쿠버에서는 확인이 불가능 한 변수 (task-app.js에 사용중인 변수임)여서 tasks-deployemnt.yaml 파일에 TASKS_FOLDER 변수 등록
 
-    - minikube service tasks-service :: 해당 서비스 주소를 가져오기 위해서(실행시키기 위한 목적이 아님 실행은 apply에서 함)
+    - minikube service tasks-service :: 해당 서비스 주소를 가져오기 위해서(실행시키기 위한 목적이 아님 실행은 apply에서 함, 다만 노출을 minikube로 외부 노출을 하는 것 )
+
+### Section 4 :: 프론트엔드 추가
+
+    - docker build -t nameofokja/kube-test-frontend .
+    - docker run -p 80:80 -d --rm nameofokja/kube-test-frontend
+    >> CQRS 에러 발생 됨 tasks-api에 cqrs 허용 하고 다시 빌드 실행
+    - docker push nameofokja/kube-test-frontend
+
+    - kubectl apply -f .\frontend-service.yaml -f .\frontend-deployment.yaml
 
 ### MEMO
 
@@ -41,3 +50,5 @@
     - service name 에 맞게 자동으로 쿠버네티스가 IP 환경변수가 만듬
         ex. auth-service => AUTH_SERVICE_SERVICE_HOST
         ex. users-service => USERS_SERVICE_SERVICE_HOST
+
+    - 도커 이미지를 다시 땡겨오고 싶으면 kubectl delete -f deployment.yaml 로 삭제 후 kubectl apply -f deployment.yaml 로 새롭게 적용 하면 땡겨옴
