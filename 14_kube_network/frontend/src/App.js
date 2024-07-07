@@ -8,8 +8,8 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = useCallback(function () {
-    // FIXED HARD_CODING
-    fetch('http://127.0.0.1:57297/tasks', {
+    // 리버스프록시 : nginx.conf 파일에 proxy_pass 값으로 됨
+    fetch('/api/tasks', {
       headers: {
         Authorization: 'Bearer abc',
       },
@@ -30,8 +30,8 @@ function App() {
   );
 
   function addTaskHandler(task) {
-    // FIXED HARD_CODING
-    fetch('http://127.0.0.1:57297/tasks', {
+    // 리버스프록시 : nginx.conf 파일에 proxy_pass 값으로 됨
+    fetch('/api/tasks', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

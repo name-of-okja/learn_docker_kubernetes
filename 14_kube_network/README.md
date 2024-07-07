@@ -39,6 +39,12 @@
 
     - kubectl apply -f .\frontend-service.yaml -f .\frontend-deployment.yaml
 
+    - frontend/nginx.conf 에서 리버스프록시 설정
+    >> location /api/ {
+            proxy_pass http://tasks-service.default:8000/;
+        }
+    >> 내부에서 url을 맵핑해주나봄
+
 ### MEMO
 
     - service의 spec type 이 ClusterIP 일 경우 클러스터 내부로 부터만 접근 할 수 있는 서비스가 됨 :: 즉 외부에서는 접근이 불가능함
